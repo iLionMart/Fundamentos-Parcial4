@@ -38,7 +38,7 @@ public class main {
                     }
     
                     strHash = strBuilder.toString();
-                    System.out.println("La contraseña encriptada en HASH " + strHash);
+                    System.out.println("La contraseña encriptada en HASH es: " + strHash);
                     break;
 
                 case 2:
@@ -48,6 +48,7 @@ public class main {
                         
                         if(file.ready()){
                             BufferedReader lector = new BufferedReader(file);
+
                             while(confirmador == "false"){
                                 contra = lector.readLine();
                                 msg = contra.getBytes();
@@ -67,18 +68,18 @@ public class main {
                                 }
 
                                 strHash = strBuilder.toString();
-                                System.out.println(contra);
-                                System.out.println(strHash);
 
-                                if (encriptado == strHash){
+                                if (encriptado.equals(strHash)){
                                     confirmador = "true";
                                 }
                             }
                                 System.out.println("Del Hash: " + encriptado);
                                 System.out.println("La contraseña es: " + contra);
+
                         }else{
                             System.out.println("El archivo aun no esta cargado");
                         }
+
                     } catch (Exception e){
                     System.out.println("Error: " + e.getMessage());
                 }
